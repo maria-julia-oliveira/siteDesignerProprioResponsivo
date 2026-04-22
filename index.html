@@ -3,154 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pérola Nails | Serviços</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    
+    <title>Beauty Nails | Manicure & Estética</title>
     <style>
+        /* CSS - Estilização e Cores */
         :root {
-            --rosa-pastel: #f8c8dc;
-            --rosa-escuro: #d4a5b9;
-            --off-white: #fdf2f5;
+            --rosa-claro: #ffe4e1;
+            --rosa-pastel: #ffb7c5;
+            --rosa-escuro: #d4a5ab;
             --texto: #4a4a4a;
+            --branco: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--off-white);
+            background-color: var(--rosa-claro);
             color: var(--texto);
-            text-align: center;
-            padding: 20px;
+            line-height: 1.6;
         }
 
-        /* Estilo do Botão Principal */
-        .btn-servicos {
-            background-color: var(--rosa-pastel);
-            color: var(--texto);
-            border: 2px solid var(--rosa-escuro);
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-top: 50px;
+        /* Menu de Navegação */
+        header {
+            background-color: var(--branco);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .btn-servicos:hover {
-            background-color: var(--rosa-escuro);
-            color: white;
-            transform: scale(1.05);
-        }
-
-        /* Container da Tabela (Escondido por padrão) */
-        #tabela-precos {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: all 0.6s ease-in-out;
-            margin-top: 30px;
-        }
-
-        #tabela-precos.ativo {
-            max-height: 2000px; /* Valor alto para permitir expansão */
-            opacity: 1;
-        }
-
-        /* Grid de Serviços */
-        .servicos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--rosa-pastel);
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-
-        .info {
-            padding: 15px;
-        }
-
-        .preco {
-            display: block;
-            font-size: 1.3rem;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
             color: var(--rosa-escuro);
-            font-weight: 600;
-            margin-top: 10px;
         }
 
-        h2 { font-family: 'Playfair Display', serif; margin-bottom: 10px; }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--texto);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--rosa-pastel);
+        }
+
+        /* Seção Principal */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('https://images.unsplash.com/photo-1604654894610-df490668f602?auto=format&fit=crop&q=80&w=1000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--rosa-escuro);
+            margin-bottom: 10px;
+        }
+
+        /* Botões de Serviço */
+        .services-container {
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background-color: var(--rosa-pastel);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        button:hover {
+            background-color: var(--rosa-escuro);
+            transform: translateY(-2px);
+        }
+
+        /* Área de Conteúdo Dinâmico */
+        #display-area {
+            background: var(--branco);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 15px;
+            min-height: 200px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--rosa-claro);
+        }
+
+        /* Formulário de Agendamento */
+        .booking-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .booking-form input, .booking-form select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            nav ul { display: none; } /* Simplificação para o exemplo */
+        }
     </style>
 </head>
 <body>
 
-    <h2>Conheça nossos cuidados</h2>
-    <p>Clique abaixo para ver as opções e valores.</p>
+    <header>
+        <div class="logo">💅 Beauty Nails</div>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showContact()">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <button class="btn-servicos" id="btnToggle">Nossos Serviços 💅</button>
+    <section class="hero">
+        <h1>Sua beleza em boas mãos</h1>
+        <p>Escolha o cuidado que suas unhas merecem</p>
+    </section>
 
-    <div id="tabela-precos">
-        <div class="servicos-grid" id="grid-container">
-            </div>
+    <div class="services-container">
+        <div class="btn-group">
+            <button onclick="showEsmaltacao()">Esmaltação</button>
+            <button onclick="showGel()">Esmaltação em Gel</button>
+            <button onclick="showBooking()">Agendamento</button>
+        </div>
+
+        <div id="display-area">
+            <h3>Selecione um serviço acima para ver detalhes</h3>
+        </div>
     </div>
 
     <script>
-        const servicos = [
-            { nome: "Mão Simples", preco: "R$ 35,00", img: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=400" },
-            { nome: "Pé e Mão", preco: "R$ 65,00", img: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=400" },
-            { nome: "Banho de Gel", preco: "R$ 90,00", img: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=400" },
-            { nome: "Esmaltação em Gel", preco: "R$ 55,00", img: "https://images.unsplash.com/photo-1604654894610-df490651e194?w=400" }
-        ];
+        const display = document.getElementById('display-area');
 
-        const btn = document.getElementById('btnToggle');
-        const tabela = document.getElementById('tabela-precos');
-        const grid = document.getElementById('grid-container');
-
-        // Criar os cards dinamicamente
-        servicos.forEach(s => {
-            grid.innerHTML += `
-                <div class="card">
-                    <img src="${s.img}" alt="${s.nome}">
-                    <div class="info">
-                        <h3>${s.nome}</h3>
-                        <span class="preco">${s.preco}</span>
-                    </div>
-                </div>
+        // Função para Esmaltação Simples
+        function showEsmaltacao() {
+            display.innerHTML = `
+                <h2 style="color: var(--rosa-escuro)">Esmaltação Clássica</h2>
+                <div class="price-item"><span>Simples (Mão)</span> <span>R$ 30,00</span></div>
+                <div class="price-item"><span>Simples (Pé)</span> <span>R$ 35,00</span></div>
+                <div class="price-item"><span>Combo Pé e Mão</span> <span>R$ 60,00</span></div>
+                <div class="price-item"><span>Francesinha</span> <span>+ R$ 10,00</span></div>
             `;
-        });
+        }
 
-        // Lógica do Clique para mostrar/esconder
-        btn.addEventListener('click', () => {
-            tabela.classList.toggle('ativo');
-            
-            if (tabela.classList.contains('ativo')) {
-                btn.innerText = "Fechar Tabela ✕";
-                // Scroll suave para a tabela
-                setTimeout(() => {
-                    tabela.scrollIntoView({ behavior: 'smooth' });
-                }, 300);
-            } else {
-                btn.innerText = "Nossos Serviços 💅";
-            }
-        });
+        // Função para Esmaltação em Gel
+        function showGel() {
+            display.innerHTML = `
+                <h2 style="color: var(--rosa-escuro)">Esmaltação em Gel</h2>
+                <p style="margin-bottom:15px">Durabilidade de até 20 dias!</p>
+                <div class="price-item"><span>Esmaltação em Gel</span> <span>R$ 80,00</span></div>
+                <div class="price-item"><span>Banho de Gel</span> <span>R$ 110,00</span></div>
+                <div class="price-item"><span>Alongamento Fibra</span> <span>R$ 150,00</span></div>
+                <div class="price-item"><span>Manutenção</span> <span>R$ 90,00</span></div>
+            `;
+        }
+
+        // Função para Agendamento
+        function showBooking() {
+            display.innerHTML = `
+                <h2 style="color: var(--rosa-escuro)">Agende seu Horário</h2>
+                <form class="booking-form" onsubmit="event.preventDefault(); alert('Pedido de agendamento enviado!');">
+                    <label>Seu Nome:</label>
+                    <input type="text" placeholder="Digite seu nome completo" required>
+                    
+                    <label>Escolha a Data:</label>
+                    <input type="date" required>
+                    
+                    <label>Escolha o Horário:</label>
+                    <select>
+                        <option>09:00</option>
+                        <option>10:30</option>
+                        <option>14:00</option>
+                        <option>16:00</option>
+                    </select>
+                    
+                    <button type="submit">Confirmar Agendamento</button>
+                </form>
+            `;
+        }
+
+        // Função de Contato (Menu)
+        function showContact() {
+            alert("📞 Contato Manicure:\nWhatsApp: (11) 98765-4321\nInstagram: @beauty_nails_oficial\nEndereço: Rua das Flores, 123 - Centro");
+        }
     </script>
 
 </body>
