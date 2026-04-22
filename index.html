@@ -2,175 +2,672 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rose Design | Nail Art Specialist</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rose Design | Estúdio de Manicure</title>
+    <!-- Google Fonts e Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* PALETA DE CORES E VARIÁVEIS */
-        :root {
-            --rosa-pastel: #fdf2f5;
-            --rosa-medio: #f8bbd0;
-            --rosa-escuro: #c2185b;
-            --texto: #4a4a4a;
-            --branco: #ffffff;
-            --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
 
-        /* RESET E GERAL */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        
-        body { background-color: var(--rosa-pastel); color: var(--texto); line-height: 1.6; }
+        body {
+            background: #fff9fc;
+            color: #3e2a35;
+            scroll-behavior: smooth;
+        }
 
-        /* HEADER & MENU */
+        /* Paleta de cores: rosa pastel base + rosa mais escuro para contraste */
+        :root {
+            --rose-pastel: #f8e1e9;
+            --rose-medium: #e6b3c6;
+            --rose-deep: #c27e9b;
+            --rose-soft-bg: #fff0f5;
+            --shadow-sm: 0 10px 20px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+            --border-radius-card: 28px;
+        }
+
+        /* Header e navegação */
         header {
-            background: var(--branco);
-            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0.8rem 5%;
+            border-bottom: 1px solid var(--rose-pastel);
+        }
+
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--sombra);
-        }
-
-        .logo { font-size: 1.8rem; font-weight: bold; color: var(--rosa-escuro); }
-
-        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
-
-        .nav-btn {
-            background: var(--rosa-pastel);
-            border: 1px solid var(--rosa-medio);
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            font-size: 0.9rem;
-        }
-
-        .nav-btn:hover { background: var(--rosa-escuro); color: white; transform: translateY(-3px); }
-
-        /* LANDING PAGE (HERO) */
-        .hero {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=1200') center/cover;
-            padding: 20px;
-        }
-
-        .hero h1 { font-size: 3.5rem; color: var(--rosa-escuro); margin-bottom: 1rem; text-shadow: 2px 2px var(--branco); }
-
-        .cta-btn {
-            padding: 15px 40px;
-            background: var(--rosa-escuro);
-            color: white;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(194, 24, 91, 0.4);
-            transition: 0.3s;
-        }
-
-        .cta-btn:hover { transform: scale(1.05); background: #a3154d; }
-
-        /* CATÁLOGO E FILTROS */
-        .catalog { padding: 50px 5%; max-width: 1200px; margin: 0 auto; }
-
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
             flex-wrap: wrap;
         }
 
-        .filter-btn {
-            padding: 12px 25px;
-            border: 2px solid var(--rosa-escuro);
-            background: white;
-            color: var(--rosa-escuro);
-            border-radius: 8px;
-            font-weight: bold;
+        .logo {
+            font-size: 1.7rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #c27e9b, #e6b3c6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .logo i {
+            color: var(--rose-deep);
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            margin-right: 5px;
+        }
+
+        .menu-botoes {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-nav {
+            background: transparent;
+            border: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 18px;
+            border-radius: 60px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
+            font-size: 0.9rem;
+            color: #5e3a47;
         }
 
-        .filter-btn.active, .filter-btn:hover { background: var(--rosa-escuro); color: white; }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+        .btn-nav i {
+            font-size: 1.1rem;
+            color: var(--rose-deep);
         }
 
-        .card {
+        .btn-nav:hover {
+            background: var(--rose-pastel);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* hero / landing */
+        .hero {
+            text-align: center;
+            padding: 3.5rem 1rem 4rem;
+            background: linear-gradient(145deg, #fff4f9 0%, #ffeef4 100%);
+            border-radius: 0 0 60px 60px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--rose-deep);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 550px;
+            margin: 1rem auto;
+            color: #7c5b68;
+        }
+
+        .cta-principal {
+            background: var(--rose-deep);
+            border: none;
+            color: white;
+            padding: 12px 32px;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cta-principal:hover {
+            background: #b06c8a;
+            transform: scale(1.02);
+        }
+
+        /* catálogo de serviços */
+        .catalogo-section {
+            padding: 1rem 5% 3rem;
+        }
+
+        .filtros {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0 2rem;
+        }
+
+        .filtro-botao {
             background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--sombra);
-            transition: 0.3s;
-            border: 1px solid var(--rosa-pastel);
+            border: 1.5px solid var(--rose-medium);
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: 500;
+            color: #5e3a47;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: var(--shadow-sm);
         }
 
-        .card:hover { transform: translateY(-10px); }
+        .filtro-botao.ativo {
+            background: var(--rose-deep);
+            border-color: var(--rose-deep);
+            color: white;
+        }
 
-        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .filtro-botao:hover {
+            background: var(--rose-pastel);
+            transform: translateY(-2px);
+        }
 
-        .card-info { padding: 20px; }
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
 
-        .card-info h3 { margin-bottom: 10px; color: var(--rosa-escuro); }
+        .card-servico {
+            background: white;
+            border-radius: var(--border-radius-card);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: all 0.25s ease;
+            border: 1px solid #ffe2ed;
+        }
 
-        .price { font-size: 1.2rem; font-weight: bold; color: #333; }
+        .card-servico:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 30px -12px rgba(194, 126, 155, 0.3);
+        }
 
-        /* MODAIS / INTERAÇÕES */
+        .img-servico {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            background: #f5e2ea;
+        }
+
+        .card-info {
+            padding: 1.2rem;
+        }
+
+        .card-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .preco {
+            font-weight: 700;
+            color: var(--rose-deep);
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .badge {
+            background: var(--rose-pastel);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+
+        /* modal de agendamento e carrinho/perfil */
         .modal {
             display: none;
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
-            justify-content: center; align-items: center;
-            z-index: 2000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
         }
 
-        .modal-content {
+        .modal-conteudo {
             background: white;
-            padding: 30px;
-            border-radius: 20px;
+            max-width: 450px;
             width: 90%;
-            max-width: 400px;
-            text-align: center;
-            position: relative;
+            border-radius: 40px;
+            padding: 1.8rem;
+            box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2);
+            border-top: 6px solid var(--rose-deep);
         }
 
-        .close { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 1.5rem; }
+        .modal-conteudo h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--rose-deep);
+        }
 
-        input, select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid var(--rosa-medio); border-radius: 5px; }
+        .modal-conteudo input, .modal-conteudo select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 60px;
+            border: 1px solid var(--rose-medium);
+            background: #fffafc;
+        }
 
-        /* RESPONSIVIDADE */
-        @media (max-width: 768px) {
-            nav ul { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 10px; justify-content: space-around; }
-            .hero h1 { font-size: 2.2rem; }
-            .catalog { padding-bottom: 100px; }
+        .btn-modal {
+            background: var(--rose-deep);
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 60px;
+            margin-top: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .fechar-modal {
+            float: right;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* carrinho lateral mini */
+        .carrinho-painel {
+            position: fixed;
+            top: 0;
+            right: -380px;
+            width: 350px;
+            height: 100%;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.1);
+            z-index: 1100;
+            transition: right 0.3s ease;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid var(--rose-deep);
+        }
+
+        .carrinho-painel.aberto {
+            right: 0;
+        }
+
+        .carrinho-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--rose-pastel);
+            padding-bottom: 0.8rem;
+        }
+
+        .lista-carrinho {
+            flex: 1;
+            overflow-y: auto;
+            margin: 1rem 0;
+        }
+
+        .item-carrinho {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f3e0e8;
+        }
+
+        .total-carrinho {
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-top: 2px dashed var(--rose-medium);
+            padding-top: 1rem;
+        }
+
+        /* responsividade */
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .menu-botoes {
+                justify-content: center;
+            }
+            .carrinho-painel {
+                width: 100%;
+                right: -100%;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--rose-pastel);
+            margin-top: 2rem;
+            color: #734c5c;
+        }
+        .btn-add-carrinho {
+            background: var(--rose-pastel);
+            border: none;
+            padding: 5px 12px;
+            border-radius: 40px;
+            margin-top: 5px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .btn-add-carrinho:hover {
+            background: var(--rose-medium);
+        }
+        .info-contato {
+            background: #fef2f7;
+            padding: 1rem;
+            border-radius: 30px;
+            margin: 1rem 0;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Rose Design</div>
-        <nav>
-            <ul>
-                <li><button class="nav-btn" onclick="openModal('modal-contato')">📞 Contato</button></li>
-                <li><button class="nav-btn" onclick="openModal('modal-agenda')">📅 Agenda</button></li>
-                <li><button class="nav-btn" onclick="openModal('modal-carrinho')">🛒 Carrinho</button></li>
-                <li><button class="nav-btn" onclick="openModal('modal-perfil')">👤 Perfil</button></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <div class="navbar">
+        <div class="logo"><i class="fas fa-spa"></i> Rose Design</div>
+        <div class="menu-botoes">
+            <button class="btn-nav" id="btnInicio"><i class="fas fa-home"></i> Início</button>
+            <button class="btn-nav" id="btnContato"><i class="fas fa-phone-alt"></i> Contato</button>
+            <button class="btn-nav" id="btnAgenda"><i class="fas fa-calendar-check"></i> Agendar</button>
+            <button class="btn-nav" id="btnCarrinhoAbrir"><i class="fas fa-shopping-bag"></i> Carrinho</button>
+            <button class="btn-nav" id="btnPerfil"><i class="fas fa-user-circle"></i> Perfil</button>
+        </div>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <h1>Rose Design Studio</h1>
+    <p>Unhas dos sonhos com arte, cuidado e um toque de rosa. Agende sua experiência!</p>
+    <button class="cta-principal" id="ctaAgendar"><i class="fas fa-calendar-alt"></i> Reserve seu horário</button>
+</section>
+
+<section class="catalogo-section">
+    <h2 style="text-align:center; color:#c27e9b;">✨ Nossos Serviços ✨</h2>
+    <!-- Filtros principais: 3 botões de categoria -->
+    <div class="filtros" id="filtrosCategoria">
+        <button class="filtro-botao ativo" data-cat="esmaltação">💅 Esmaltação Tradicional</button>
+        <button class="filtro-botao" data-cat="gel">✨ Esmaltação em Gel</button>
+        <button class="filtro-botao" data-cat="cuticula">🍃 Tiragem de Cutícula</button>
+    </div>
+    <div id="servicosContainer" class="servicos-grid"></div>
+</section>
+
+<footer>
+    <p>© 2025 Rose Design - Beleza que floresce em cada detalhe 💖</p>
+</footer>
+
+<!-- Modal de Contato (interação) -->
+<div id="modalContato" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar-modal" id="fecharContato">&times;</span>
+        <h3><i class="fas fa-heart"></i> Contato Rose</h3>
+        <div class="info-contato">
+            <p><i class="fab fa-whatsapp"></i> <strong>WhatsApp:</strong> (11) 98765-4321</p>
+            <p><i class="fas fa-instagram"></i> <strong>Instagram:</strong> @rosedesign.oficial</p>
+            <p><i class="fas fa-envelope"></i> contato@rosedesign.com</p>
+            <p><i class="fas fa-clock"></i> Atendimento: Ter-Sáb 9h-19h</p>
+        </div>
+        <button class="btn-modal fechar-modal-generico">Fechar</button>
+    </div>
+</div>
+
+<!-- Modal de Agendamento -->
+<div id="modalAgenda" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar-modal" id="fecharAgenda">&times;</span>
+        <h3><i class="fas fa-calendar-week"></i> Agendar Horário</h3>
+        <input type="text" placeholder="Seu nome" id="nomeCliente">
+        <input type="date" id="dataAgenda">
+        <input type="time" id="horaAgenda">
+        <select id="servicoAgenda">
+            <option value="Esmaltação Tradicional">Esmaltação Tradicional</option>
+            <option value="Esmaltação em Gel">Esmaltação em Gel</option>
+            <option value="Tiragem de Cutícula">Tiragem de Cutícula</option>
+        </select>
+        <button class="btn-modal" id="confirmarAgenda">Confirmar Agendamento</button>
+        <p id="msgAgenda" style="margin-top:10px; font-size:0.8rem;"></p>
+    </div>
+</div>
+
+<!-- Modal Perfil profissional -->
+<div id="modalPerfil" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar-modal" id="fecharPerfil">&times;</span>
+        <h3><i class="fas fa-id-badge"></i> Perfil Profissional</h3>
+        <div style="text-align:center;">
+            <img src="https://placehold.co/120x120/f8e1e9/c27e9b?text=Rose" style="border-radius: 50%; width: 100px; height:100px; object-fit:cover; margin:10px 0;">
+            <h4>Rose Maria</h4>
+            <p>Especialista em Nail Art & Designer de unhas há 8 anos. Cursos no Brasil e exterior, apaixonada por criar unhas que contam histórias. Seu bem-estar é minha obra-prima.</p>
+            <p><i class="fas fa-star" style="color:#c27e9b;"></i> +2.500 clientes atendidas</p>
+            <p><i class="fas fa-certificate"></i> Técnica em Manicure & Pedicure Avançada</p>
+        </div>
+        <button class="btn-modal fechar-modal-generico">Fechar</button>
+    </div>
+</div>
+
+<!-- Carrinho lateral -->
+<div id="carrinhoPainel" class="carrinho-painel">
+    <div class="carrinho-header">
+        <h3><i class="fas fa-shopping-cart"></i> Meu carrinho</h3>
+        <i class="fas fa-times" id="fecharCarrinho" style="cursor:pointer; font-size:1.4rem;"></i>
+    </div>
+    <div id="listaItensCarrinho" class="lista-carrinho">
+        <!-- itens adicionados via js -->
+        <p style="color:gray;">Seu carrinho está vazio</p>
+    </div>
+    <div class="total-carrinho">
+        Total: R$ <span id="carrinhoTotal">0.00</span>
+    </div>
+    <button class="btn-modal" id="finalizarCompraBtn" style="margin-top:15px;">Finalizar pedido</button>
+</div>
+
+<script>
+    // ---------- BASE DE DADOS DOS SERVIÇOS COM IMAGENS (placeholder realistas) ----------
+    const servicosDB = {
+        esmaltação: [
+            { id: 1, nome: "Esmaltação Tradicional - Simples", preco: 25, imagem: "https://placehold.co/400x300/f8e1e9/c27e9b?text=Esmaltação+Simples", disponivel: true, tipo: "esmaltação" },
+            { id: 2, nome: "Esmaltação com Francesinha", preco: 35, imagem: "https://placehold.co/400x300/f5e0ea/c27e9b?text=Francesinha", disponivel: true, tipo: "esmaltação" },
+            { id: 3, nome: "Esmaltação + Arte Nail", preco: 50, imagem: "https://placehold.co/400x300/f1dae6/c27e9b?text=Arte+Nail", disponivel: false, tipo: "esmaltação" }
+        ],
+        gel: [
+            { id: 4, nome: "Esmaltação em Gel - Unha Natural", preco: 70, imagem: "https://placehold.co/400x300/f2dee8/c27e9b?text=Gel+Natural", disponivel: true, tipo: "gel" },
+            { id: 5, nome: "Alongamento em Gel (Fibra)", preco: 120, imagem: "https://placehold.co/400x300/f3dae5/c27e9b?text=Alongamento+Gel", disponivel: true, tipo: "gel" },
+            { id: 6, nome: "Blindagem em Gel", preco: 90, imagem: "https://placehold.co/400x300/f8e4ee/c27e9b?text=Blindagem+Gel", disponivel: true, tipo: "gel" }
+        ],
+        cuticula: [
+            { id: 7, nome: "Tiragem de Cutícula (Completa)", preco: 20, imagem: "https://placehold.co/400x300/f5dee7/c27e9b?text=Cutícula+Completa", disponivel: true, tipo: "cuticula" },
+            { id: 8, nome: "Cutícula + Amolecimento e Hidratação", preco: 30, imagem: "https://placehold.co/400x300/fbe9f0/c27e9b?text=Hidratação+Cutículas", disponivel: true, tipo: "cuticula" },
+            { id: 9, nome: "Poda Especial + Spray Antibacteriano", preco: 28, imagem: "https://placehold.co/400x300/f0dae5/c27e9b?text=Poda+Premium", disponivel: false, tipo: "cuticula" }
+        ]
+    };
+
+    let carrinho = [];
+
+    // Renderizar serviços com base na categoria ativa e também filtro de disponibilidade + preço (mantendo filtros simples)
+    let categoriaAtiva = "esmaltação";
+
+    function renderizarServicos() {
+        let servicos = [];
+        if (categoriaAtiva === "esmaltação") servicos = servicosDB.esmaltação;
+        else if (categoriaAtiva === "gel") servicos = servicosDB.gel;
+        else servicos = servicosDB.cuticula;
+
+        // filtros adicionais: exibimos disponibilidade e faixa de preço (sem filtro extra, mas mostramos badge)
+        const container = document.getElementById("servicosContainer");
+        container.innerHTML = "";
+        servicos.forEach(serv => {
+            const card = document.createElement("div");
+            card.className = "card-servico";
+            card.innerHTML = `
+                <img class="img-servico" src="${serv.imagem}" alt="${serv.nome}">
+                <div class="card-info">
+                    <h3>${serv.nome}</h3>
+                    <div class="preco">R$ ${serv.preco.toFixed(2)}</div>
+                    <span class="badge">${serv.disponivel ? "✅ Disponível" : "❌ Indisponível"}</span>
+                    <div style="margin-top: 12px;">
+                        <button class="btn-add-carrinho" data-id="${serv.id}" data-nome="${serv.nome}" data-preco="${serv.preco}" ${!serv.disponivel ? "disabled style='opacity:0.5'" : ""}>➕ Adicionar ao carrinho</button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        // eventos nos botões dinâmicos
+        document.querySelectorAll(".btn-add-carrinho").forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                const id = parseInt(btn.getAttribute("data-id"));
+                const nome = btn.getAttribute("data-nome");
+                const preco = parseFloat(btn.getAttribute("data-preco"));
+                adicionarAoCarrinho({ id, nome, preco, quantidade: 1 });
+            });
+        });
+    }
+
+    function adicionarAoCarrinho(item) {
+        const existe = carrinho.find(i => i.id === item.id);
+        if (existe) existe.quantidade += 1;
+        else carrinho.push({ ...item, quantidade: 1 });
+        atualizarCarrinhoUI();
+        abrirCarrinhoLateral();
+    }
+
+    function atualizarCarrinhoUI() {
+        const container = document.getElementById("listaItensCarrinho");
+        const totalSpan = document.getElementById("carrinhoTotal");
+        if (carrinho.length === 0) {
+            container.innerHTML = "<p style='color:gray;'>Seu carrinho está vazio</p>";
+            totalSpan.innerText = "0.00";
+            return;
+        }
+        let total = 0;
+        container.innerHTML = "";
+        carrinho.forEach((item, idx) => {
+            total += item.preco * item.quantidade;
+            const div = document.createElement("div");
+            div.className = "item-carrinho";
+            div.innerHTML = `
+                <span><strong>${item.nome}</strong> x${item.quantidade}</span>
+                <span>R$ ${(item.preco * item.quantidade).toFixed(2)} 
+                <i class="fas fa-trash-alt" style="color:#c27e9b; margin-left:8px; cursor:pointer;" data-index="${idx}"></i>
+                </span>
+            `;
+            container.appendChild(div);
+        });
+        totalSpan.innerText = total.toFixed(2);
+        // adicionar eventos de remoção
+        document.querySelectorAll(".fa-trash-alt").forEach(icon => {
+            icon.addEventListener("click", (e) => {
+                const idx = parseInt(icon.getAttribute("data-index"));
+                carrinho.splice(idx, 1);
+                atualizarCarrinhoUI();
+                if(carrinho.length === 0) abrirCarrinhoLateral();
+            });
+        });
+    }
+
+    function abrirCarrinhoLateral() {
+        document.getElementById("carrinhoPainel").classList.add("aberto");
+    }
+    function fecharCarrinhoLateral() {
+        document.getElementById("carrinhoPainel").classList.remove("aberto");
+    }
+
+    // MODAIS genéricos
+    function abrirModal(modalId) {
+        document.getElementById(modalId).style.display = "flex";
+    }
+    function fecharModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    // EVENTOS E INTERAÇÕES
+    document.querySelectorAll(".filtro-botao").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            document.querySelectorAll(".filtro-botao").forEach(b => b.classList.remove("ativo"));
+            btn.classList.add("ativo");
+            categoriaAtiva = btn.getAttribute("data-cat");
+            renderizarServicos();
+        });
+    });
+
+    // Botões de atalho e interações menu
+    document.getElementById("btnInicio").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    document.getElementById("btnContato").addEventListener("click", () => abrirModal("modalContato"));
+    document.getElementById("btnAgenda").addEventListener("click", () => abrirModal("modalAgenda"));
+    document.getElementById("btnCarrinhoAbrir").addEventListener("click", abrirCarrinhoLateral);
+    document.getElementById("fecharCarrinho").addEventListener("click", fecharCarrinhoLateral);
+    document.getElementById("btnPerfil").addEventListener("click", () => abrirModal("modalPerfil"));
+    document.getElementById("ctaAgendar").addEventListener("click", () => abrirModal("modalAgenda"));
+
+    // fechamentos modais
+    const fecharBtns = document.querySelectorAll(".fechar-modal, .fechar-modal-generico");
+    fecharBtns.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const modal = btn.closest(".modal");
+            if (modal) modal.style.display = "none";
+        });
+    });
+    // fechar clicando fora
+    window.addEventListener("click", (e) => {
+        if (e.target.classList.contains("modal")) e.target.style.display = "none";
+    });
+
+    // Agendamento lógica
+    document.getElementById("confirmarAgenda").addEventListener("click", () => {
+        const nome = document.getElementById("nomeCliente").value.trim();
+        const data = document.getElementById("dataAgenda").value;
+        const hora = document.getElementById("horaAgenda").value;
+        const servico = document.getElementById("servicoAgenda").value;
+        if (!nome || !data || !hora) {
+            document.getElementById("msgAgenda").innerText = "Preencha nome, data e horário!";
+            return;
+        }
+        document.getElementById("msgAgenda").innerHTML = `✅ Agendado! ${nome}, ${servico} para ${data} às ${hora}. Em breve confirmação.`;
+        setTimeout(() => {
+            fecharModal("modalAgenda");
+            document.getElementById("msgAgenda").innerText = "";
+            document.getElementById("nomeCliente").value = "";
+        }, 1800);
+    });
+
+    // Finalizar compra carrinho (interação)
+    document.getElementById("finalizarCompraBtn").addEventListener("click", () => {
+        if(carrinho.length === 0) {
+            alert("Seu carrinho está vazio :(");
+            return;
+        }
+        alert(`Pedido finalizado! Total: R$ ${document.getElementById("carrinhoTotal").innerText}. Agradecemos a preferência! Rose Design entrará em contato.`);
+        carrinho = [];
+        atualizarCarrinhoUI();
+        fecharCarrinhoLateral();
+    });
+
+    // Inicializar catálogo
+    renderizarServicos();
+</script>
+</body>
+</html>
