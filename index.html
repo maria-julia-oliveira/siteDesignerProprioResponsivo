@@ -3,121 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rose Design | Manicure de Luxo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Rose Design | Nail Art Specialist</title>
     <style>
+        /* PALETA DE CORES E VARIÁVEIS */
         :root {
-            --pastel-pink: #fce4ec;
-            --soft-pink: #f8bbd0;
-            --dark-rose: #ad1457;
-            --white: #ffffff;
-            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --rosa-pastel: #fdf2f5;
+            --rosa-medio: #f8bbd0;
+            --rosa-escuro: #c2185b;
+            --texto: #4a4a4a;
+            --branco: #ffffff;
+            --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        /* RESET E GERAL */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        body { background-color: var(--rosa-pastel); color: var(--texto); line-height: 1.6; }
 
-        body {
-            background-color: var(--pastel-pink);
-            color: #333;
-            scroll-behavior: smooth;
-        }
-
-        /* --- MENU DE NAVEGAÇÃO --- */
-        nav {
-            background: var(--white);
+        /* HEADER & MENU */
+        header {
+            background: var(--branco);
             padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: fixed;
-            width: 100%;
+            position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--shadow);
+            box-shadow: var(--sombra);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--dark-rose);
-        }
+        .logo { font-size: 1.8rem; font-weight: bold; color: var(--rosa-escuro); }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
 
-        .nav-item {
+        .nav-btn {
+            background: var(--rosa-pastel);
+            border: 1px solid var(--rosa-medio);
+            padding: 8px 15px;
+            border-radius: 20px;
             cursor: pointer;
-            text-align: center;
             transition: 0.3s;
-            color: var(--dark-rose);
-            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
             font-size: 0.9rem;
         }
 
-        .nav-item i {
-            display: block;
-            font-size: 1.2rem;
-            margin-bottom: 2px;
-        }
+        .nav-btn:hover { background: var(--rosa-escuro); color: white; transform: translateY(-3px); }
 
-        .nav-item:hover {
-            transform: translateY(-3px);
-            color: #ff4081;
-        }
-
-        /* --- LANDING PAGE (HERO) --- */
+        /* LANDING PAGE (HERO) */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(252, 228, 236, 0.7), rgba(252, 228, 236, 0.7)), 
-                        url('https://images.unsplash.com/photo-1604654894610-df490c91550a?auto=format&fit=crop&q=80&w=1000');
-            background-size: cover;
-            background-position: center;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 20px;
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&q=80&w=1200') center/cover;
+            padding: 20px;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            color: var(--dark-rose);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px var(--white);
-        }
+        .hero h1 { font-size: 3.5rem; color: var(--rosa-escuro); margin-bottom: 1rem; text-shadow: 2px 2px var(--branco); }
 
         .cta-btn {
-            background-color: var(--dark-rose);
-            color: white;
             padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.4s;
-            box-shadow: var(--shadow);
+            background: var(--rosa-escuro);
+            color: white;
             border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(194, 24, 91, 0.4);
+            transition: 0.3s;
         }
 
-        .cta-btn:hover {
-            background-color: #880e4f;
-            transform: scale(1.05);
-        }
+        .cta-btn:hover { transform: scale(1.05); background: #a3154d; }
 
-        /* --- CATÁLOGO E FILTROS --- */
-        .container {
-            padding: 80px 10%;
-        }
+        /* CATÁLOGO E FILTROS */
+        .catalog { padding: 50px 5%; max-width: 1200px; margin: 0 auto; }
 
-        .filter-section {
+        .filters {
             display: flex;
             justify-content: center;
             gap: 15px;
@@ -126,152 +92,85 @@
         }
 
         .filter-btn {
-            background: var(--white);
-            border: 2px solid var(--soft-pink);
-            padding: 10px 25px;
-            border-radius: 20px;
+            padding: 12px 25px;
+            border: 2px solid var(--rosa-escuro);
+            background: white;
+            color: var(--rosa-escuro);
+            border-radius: 8px;
+            font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            color: var(--dark-rose);
-            font-weight: 600;
         }
 
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--dark-rose);
-            color: white;
-        }
+        .filter-btn.active, .filter-btn:hover { background: var(--rosa-escuro); color: white; }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .service-card {
-            background: var(--white);
+        .card {
+            background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: var(--sombra);
             transition: 0.3s;
-            text-align: center;
-            border: 1px solid var(--soft-pink);
+            border: 1px solid var(--rosa-pastel);
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
+        .card:hover { transform: translateY(-10px); }
 
-        .service-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
 
-        .service-info {
-            padding: 20px;
-        }
+        .card-info { padding: 20px; }
 
-        .service-info h3 {
-            color: var(--dark-rose);
-            margin-bottom: 10px;
-        }
+        .card-info h3 { margin-bottom: 10px; color: var(--rosa-escuro); }
 
-        .price {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: #444;
-            display: block;
-            margin-bottom: 15px;
-        }
+        .price { font-size: 1.2rem; font-weight: bold; color: #333; }
 
-        /* --- MODAIS E INTERAÇÕES --- */
+        /* MODAIS / INTERAÇÕES */
         .modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.3);
-            z-index: 2000;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-        }
-
-        .overlay {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.5);
-            z-index: 1500;
+            justify-content: center; align-items: center;
+            z-index: 2000;
         }
 
-        .close-btn {
-            background: var(--soft-pink);
-            border: none;
-            padding: 5px 15px;
-            border-radius: 10px;
-            margin-top: 20px;
-            cursor: pointer;
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
         }
 
-        input, select {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid var(--soft-pink);
-            border-radius: 5px;
-        }
+        .close { position: absolute; right: 20px; top: 15px; cursor: pointer; font-size: 1.5rem; }
 
-        /* --- RESPONSIVIDADE --- */
+        input, select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid var(--rosa-medio); border-radius: 5px; }
+
+        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
+            nav ul { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 10px; justify-content: space-around; }
             .hero h1 { font-size: 2.2rem; }
-            .nav-links { gap: 10px; }
-            .nav-item span { display: none; }
+            .catalog { padding-bottom: 100px; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="logo">Rose Design 🌹</div>
-        <div class="nav-links">
-            <a href="#" class="nav-item" onclick="showModal('contato')">
-                <i class="fas fa-phone"></i><span>Contato</span>
-            </a>
-            <a href="#" class="nav-item" onclick="showModal('agendamento')">
-                <i class="fas fa-calendar-alt"></i><span>Agenda</span>
-            </a>
-            <a href="#" class="nav-item" onclick="showModal('carrinho')">
-                <i class="fas fa-shopping-bag"></i><span>Carrinho</span>
-            </a>
-            <a href="#" class="nav-item" onclick="showModal('perfil')">
-                <i class="fas fa-user-circle"></i><span>Perfil</span>
-            </a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <h1>Sua beleza em cada detalhe.</h1>
-        <p style="margin-bottom: 20px; color: #555;">Especialista em unhas delicadas e modernas.</p>
-        <a href="#catalogo" class="cta-btn">Ver Serviços</a>
-    </section>
-
-    <section class="container" id="catalogo">
-        <h2 style="text-align: center; color: var(--dark-rose); margin-bottom: 30px;">Nosso Catálogo</h2>
-        
-        <div class="filter-section">
-            <button class="filter-btn active" onclick="filterServices('todos')">Todos</button>
-            <button class="filter-btn" onclick="filterServices('esmalte')">Esmaltação</button>
-            <button class="filter-btn" onclick="filterServices('gel')">Esmaltação em Gel</button>
-            <button class="filter-btn" onclick="filterServices('cuticula')">Cutícula</button>
-        </div>
-
-        <div class="services-grid" id="grid-servicos">
-            </div>
-    </section>
-
-    <div class="overlay" id="overlay" onclick="closeMod
+    <header>
+        <div class="logo">Rose Design</div>
+        <nav>
+            <ul>
+                <li><button class="nav-btn" onclick="openModal('modal-contato')">📞 Contato</button></li>
+                <li><button class="nav-btn" onclick="openModal('modal-agenda')">📅 Agenda</button></li>
+                <li><button class="nav-btn" onclick="openModal('modal-carrinho')">🛒 Carrinho</button></li>
+                <li><button class="nav-btn" onclick="openModal('modal-perfil')">👤 Perfil</button></li>
+            </ul>
+        </nav>
+    </header>
