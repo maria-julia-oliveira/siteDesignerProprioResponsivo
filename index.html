@@ -1,303 +1,173 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rose Nails | Studio de Manicure</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <title>Rose Design - Manicure</title>
     <style>
-        /* --- CSS ESTILIZAÇÃO --- */
-        :root {
-            --rosa-pastel: #fce4ec;
-            --rosa-medio: #f8bbd0;
-            --rosa-escuro: #ad1457;
-            --texto: #4a4a4a;
-            --branco: #ffffff;
-        }
-
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            background-color: #f8f0f3;
         }
 
-        body {
-            background-color: #fffafb;
-            color: var(--texto);
-            line-height: 1.6;
-        }
-
-        /* Menu de Navegação */
         header {
-            background-color: var(--rosa-pastel);
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--rosa-escuro);
-            font-weight: bold;
+            background-color: #d19dc6;
+            padding: 10px;
+            text-align: center;
         }
 
         nav ul {
-            display: flex;
-            list-style: none;
+            list-style-type: none;
+            padding: 0;
         }
 
         nav ul li {
-            margin-left: 20px;
+            display: inline;
+            margin: 0 15px;
         }
 
-        nav ul li a {
+        nav a {
+            color: white;
             text-decoration: none;
-            color: var(--rosa-escuro);
-            font-weight: 600;
-            transition: 0.3s;
         }
 
-        nav ul li a:hover {
-            opacity: 0.7;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), 
-                        url('https://images.unsplash.com/photo-1604654894610-df490c81726a?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .landing {
             text-align: center;
-            margin-top: 60px;
+            padding: 50px 0;
         }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--rosa-escuro);
-            margin-bottom: 1rem;
-        }
-
-        /* Seção de Serviços */
-        .services-section {
-            padding: 4rem 5%;
+        .filtros {
             text-align: center;
+            margin: 20px 0;
         }
 
-        .service-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .btn-service {
-            background-color: var(--rosa-medio);
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            color: var(--rosa-escuro);
-            transition: 0.3s transform;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-width: 180px;
-        }
-
-        .btn-service img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            object-fit: cover;
-        }
-
-        .btn-service:hover {
-            transform: translateY(-5px);
-            background-color: var(--rosa-pastel);
-        }
-
-        /* Container de Conteúdo Dinâmico */
-        #display-content {
-            margin-top: 2rem;
-            min-height: 200px;
-            padding: 2rem;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .price-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px dashed var(--rosa-medio);
-        }
-
-        /* Formulário de Agendamento */
-        .form-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-
-        input, select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--rosa-medio);
-            border-radius: 8px;
-            margin-top: 5px;
-        }
-
-        .btn-submit {
-            background-color: var(--rosa-escuro);
+        button {
+            background-color: #b36ab2;
             color: white;
             border: none;
             padding: 10px 20px;
-            border-radius: 8px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        /* Rodapé / Contato */
+        button:hover {
+            background-color: #a75c96;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+
         footer {
-            background-color: var(--rosa-pastel);
-            padding: 2rem;
             text-align: center;
-            margin-top: 4rem;
-        }
-
-        .hidden { display: none; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav ul { display: none; } /* Simplificação para mobile */
+            padding: 10px;
+            background-color: #d19dc6;
+            color: white;
         }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="logo">Rose Nails</div>
+        <h1>Rose Design</h1>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#" onclick="showContact()">Contato</a></li>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#servicos">Catálogo de Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#agendamento">Agendamento</a></li>
+                <li><a href="#perfil">Perfil</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero" id="home">
-        <h1>Sua beleza em cada detalhe</h1>
-        <p>Elegância e cuidado para suas mãos.</p>
+    <section id="home" class="landing">
+        <h2>Bem-vindo ao Rose Design!</h2>
+        <p>Transforme suas unhas com nossos serviços de manicure.</p>
+        <button onclick="scrollToSection('servicos')">Veja nossos serviços</button>
     </section>
 
-    <section class="services-section" id="servicos">
-        <h2 style="margin-bottom: 2rem; color: var(--rosa-escuro);">Nossos Serviços</h2>
-        
-        <div class="service-buttons">
-            <button class="btn-service" onclick="showEsmaltacao()">
-                <img src="https://images.unsplash.com/photo-1632345033848-64621e487597?auto=format&fit=crop&q=60&w=150" alt="Esmaltação">
-                Esmaltação
-            </button>
-
-            <button class="btn-service" onclick="showGel()">
-                <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&q=60&w=150" alt="Gel">
-                Esmaltação em Gel
-            </button>
-
-            <button class="btn-service" onclick="showAgendamento()">
-                <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=60&w=150" alt="Agenda">
-                Agendamento
-            </button>
+    <section id="servicos">
+        <h2>Catálogo de Serviços</h2>
+        <div class="filtros">
+            <button onclick="showService('esmalte')">Esmaltação</button>
+            <button onclick="showService('gel')">Esmaltação em Gel</button>
+            <button onclick="showService('cuticula')">Tiragem de Cutícula</button>
         </div>
-
-        <div id="display-content">
-            <p>Selecione um serviço acima para ver os detalhes.</p>
-        </div>
+        <div id="servicos-lista"></div>
     </section>
 
-    <footer id="contato">
-        <p>&copy; 2024 Rose Nails Studio</p>
-        <div id="contact-info" class="hidden">
-            <p style="margin-top: 10px;"><strong>📍 Endereço:</strong> Rua das Flores, 123 - Centro</p>
-            <p><strong>📞 WhatsApp:</strong> (11) 99876-5432</p>
-            <p><strong>📸 Instagram:</strong> @rosenails_studio</p>
-        </div>
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Telefone: (11) 98765-4321</p>
+    </section>
+
+    <section id="agendamento">
+        <h2>Agendamento</h2>
+        <p>Escolha seu dia e horário!</p>
+        <input type="date" id="data">
+        <input type="time" id="horario">
+        <button onclick="agendar()">Agendar</button>
+    </section>
+
+    <section id="perfil">
+        <h2>Perfil da Profissional</h2>
+        <p>Nome: Maria Silva</p>
+        <p>Experiência: 5 anos em manicure.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Rose Design. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        /* --- JAVASCRIPT INTERATIVO --- */
-        const display = document.getElementById('display-content');
+        function showService(tipo) {
+            const lista = document.getElementById('servicos-lista');
+            lista.innerHTML = ''; // Limpa a lista anterior
 
-        function showEsmaltacao() {
-            display.innerHTML = `
-                <h3 style="color: var(--rosa-escuro)">Esmaltação Comum</h3>
-                <br>
-                <div class="price-item"><span>Esmaltação Simples</span> <span>R$ 25,00</span></div>
-                <div class="price-item"><span>Esmaltação com Decoração</span> <span>R$ 35,00</span></div>
-                <div class="price-item"><span>Francesinha</span> <span>R$ 30,00</span></div>
-            `;
+            let servicos = [];
+
+            if (tipo === 'esmalte') {
+                servicos = [
+                    { nome: 'Esmaltação Clássica', preco: 'R$ 30,00', imagem: 'imagem1.jpg' },
+                    { nome: 'Esmaltação Francesinha', preco: 'R$ 35,00', imagem: 'imagem2.jpg' }
+                ];
+            } else if (tipo === 'gel') {
+                servicos = [
+                    { nome: 'Esmaltação em Gel Brilhante', preco: 'R$ 50,00', imagem: 'imagem3.jpg' },
+                    { nome: 'Esmaltação em Gel Fosco', preco: 'R$ 55,00', imagem: 'imagem4.jpg' }
+                ];
+            } else if (tipo === 'cuticula') {
+                servicos = [
+                    { nome: 'Tiragem de Cutícula Simples', preco: 'R$ 20,00', imagem: 'imagem5.jpg' },
+                    { nome: 'Tiragem de Cutícula com Esmaltação', preco: 'R$ 40,00', imagem: 'imagem6.jpg' }
+                ];
+            }
+
+            servicos.forEach(servico => {
+                const div = document.createElement('div');
+                div.innerHTML = `
+                    <h3>${servico.nome}</h3>
+                    <p>Preço: ${servico.preco}</p>
+                    <img src="${servico.imagem}" alt="${servico.nome}" style="width:100px;height:auto;">
+                `;
+                lista.appendChild(div);
+            });
         }
 
-        function showGel() {
-            display.innerHTML = `
-                <h3 style="color: var(--rosa-escuro)">Esmaltação em Gel</h3>
-                <br>
-                <div class="price-item"><span>Gel Cor Única</span> <span>R$ 60,00</span></div>
-                <div class="price-item"><span>Gel com Glitter/Arte</span> <span>R$ 80,00</span></div>
-                <div class="price-item"><span>Blindagem</span> <span>R$ 70,00</span></div>
-            `;
+        function agendar() {
+            const data = document.getElementById('data').value;
+            const horario = document.getElementById('horario').value;
+            alert(`Agendamento realizado para ${data} às ${horario}!`);
         }
 
-        function showAgendamento() {
-            display.innerHTML = `
-                <h3 style="color: var(--rosa-escuro)">Agende seu Horário</h3>
-                <br>
-                <form onsubmit="confirmar(event)">
-                    <div class="form-group">
-                        <label>Data:</label>
-                        <input type="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Horário:</label>
-                        <select required>
-                            <option value="09:00">09:00</option>
-                            <option value="10:00">10:00</option>
-                            <option value="14:00">14:00</option>
-                            <option value="16:00">16:00</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-submit">Confirmar Agendamento</button>
-                </form>
-            `;
-        }
-
-        function confirmar(event) {
-            event.preventDefault();
-            alert("Agendamento solicitado com sucesso! Entraremos em contato via WhatsApp.");
-        }
-
-        function showContact() {
-            const info = document.getElementById('contact-info');
-            info.classList.toggle('hidden');
-            window.scrollTo(0, document.body.scrollHeight);
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
