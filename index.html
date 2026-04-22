@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Nails | Manicure & Estética</title>
+    <title>Rose Nails | Studio de Manicure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        /* CSS - Estilização e Cores */
+        /* --- CSS ESTILIZAÇÃO --- */
         :root {
-            --rosa-claro: #ffe4e1;
-            --rosa-pastel: #ffb7c5;
-            --rosa-escuro: #d4a5ab;
+            --rosa-pastel: #fce4ec;
+            --rosa-medio: #f8bbd0;
+            --rosa-escuro: #ad1457;
             --texto: #4a4a4a;
             --branco: #ffffff;
         }
@@ -18,32 +19,34 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background-color: var(--rosa-claro);
+            background-color: #fffafb;
             color: var(--texto);
             line-height: 1.6;
         }
 
         /* Menu de Navegação */
         header {
-            background-color: var(--branco);
+            background-color: var(--rosa-pastel);
             padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
             color: var(--rosa-escuro);
+            font-weight: bold;
         }
 
         nav ul {
@@ -57,183 +60,245 @@
 
         nav ul li a {
             text-decoration: none;
-            color: var(--texto);
-            font-weight: 500;
+            color: var(--rosa-escuro);
+            font-weight: 600;
             transition: 0.3s;
         }
 
         nav ul li a:hover {
-            color: var(--rosa-pastel);
+            opacity: 0.7;
         }
 
-        /* Seção Principal */
+        /* Hero Section */
         .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), 
+                        url('https://images.unsplash.com/photo-1604654894610-df490c81726a?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url('https://images.unsplash.com/photo-1604654894610-df490668f602?auto=format&fit=crop&q=80&w=1000');
-            background-size: cover;
-            background-position: center;
+            margin-top: 60px;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
             color: var(--rosa-escuro);
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
         }
 
-        /* Botões de Serviço */
-        .services-container {
-            padding: 40px 5%;
+        /* Seção de Serviços */
+        .services-section {
+            padding: 4rem 5%;
             text-align: center;
         }
 
-        .btn-group {
+        .service-buttons {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            margin-bottom: 2rem;
         }
 
-        button {
-            padding: 12px 25px;
+        .btn-service {
+            background-color: var(--rosa-medio);
             border: none;
-            border-radius: 25px;
-            background-color: var(--rosa-pastel);
-            color: white;
-            font-size: 1rem;
+            padding: 15px 30px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: transform 0.2s, background 0.3s;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-weight: 600;
+            color: var(--rosa-escuro);
+            transition: 0.3s transform;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 180px;
         }
 
-        button:hover {
-            background-color: var(--rosa-escuro);
-            transform: translateY(-2px);
+        .btn-service img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
         }
 
-        /* Área de Conteúdo Dinâmico */
-        #display-area {
-            background: var(--branco);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 30px;
-            border-radius: 15px;
+        .btn-service:hover {
+            transform: translateY(-5px);
+            background-color: var(--rosa-pastel);
+        }
+
+        /* Container de Conteúdo Dinâmico */
+        #display-content {
+            margin-top: 2rem;
             min-height: 200px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .price-item {
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
-            border-bottom: 1px dashed var(--rosa-claro);
+            border-bottom: 1px dashed var(--rosa-medio);
         }
 
         /* Formulário de Agendamento */
-        .booking-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        .form-group {
+            margin-bottom: 15px;
             text-align: left;
         }
 
-        .booking-form input, .booking-form select {
+        input, select {
+            width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--rosa-medio);
             border-radius: 8px;
+            margin-top: 5px;
         }
 
-        /* Responsividade */
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2rem; }
-            nav ul { display: none; } /* Simplificação para o exemplo */
+        .btn-submit {
+            background-color: var(--rosa-escuro);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Rodapé / Contato */
+        footer {
+            background-color: var(--rosa-pastel);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .hidden { display: none; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav ul { display: none; } /* Simplificação para mobile */
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">💅 Beauty Nails</div>
+        <div class="logo">Rose Nails</div>
         <nav>
             <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#" onclick="showContact()">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Sua beleza em boas mãos</h1>
-        <p>Escolha o cuidado que suas unhas merecem</p>
+    <section class="hero" id="home">
+        <h1>Sua beleza em cada detalhe</h1>
+        <p>Elegância e cuidado para suas mãos.</p>
     </section>
 
-    <div class="services-container">
-        <div class="btn-group">
-            <button onclick="showEsmaltacao()">Esmaltação</button>
-            <button onclick="showGel()">Esmaltação em Gel</button>
-            <button onclick="showBooking()">Agendamento</button>
+    <section class="services-section" id="servicos">
+        <h2 style="margin-bottom: 2rem; color: var(--rosa-escuro);">Nossos Serviços</h2>
+        
+        <div class="service-buttons">
+            <button class="btn-service" onclick="showEsmaltacao()">
+                <img src="https://images.unsplash.com/photo-1632345033848-64621e487597?auto=format&fit=crop&q=60&w=150" alt="Esmaltação">
+                Esmaltação
+            </button>
+
+            <button class="btn-service" onclick="showGel()">
+                <img src="https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&q=60&w=150" alt="Gel">
+                Esmaltação em Gel
+            </button>
+
+            <button class="btn-service" onclick="showAgendamento()">
+                <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=60&w=150" alt="Agenda">
+                Agendamento
+            </button>
         </div>
 
-        <div id="display-area">
-            <h3>Selecione um serviço acima para ver detalhes</h3>
+        <div id="display-content">
+            <p>Selecione um serviço acima para ver os detalhes.</p>
         </div>
-    </div>
+    </section>
+
+    <footer id="contato">
+        <p>&copy; 2024 Rose Nails Studio</p>
+        <div id="contact-info" class="hidden">
+            <p style="margin-top: 10px;"><strong>📍 Endereço:</strong> Rua das Flores, 123 - Centro</p>
+            <p><strong>📞 WhatsApp:</strong> (11) 99876-5432</p>
+            <p><strong>📸 Instagram:</strong> @rosenails_studio</p>
+        </div>
+    </footer>
 
     <script>
-        const display = document.getElementById('display-area');
+        /* --- JAVASCRIPT INTERATIVO --- */
+        const display = document.getElementById('display-content');
 
-        // Função para Esmaltação Simples
         function showEsmaltacao() {
             display.innerHTML = `
-                <h2 style="color: var(--rosa-escuro)">Esmaltação Clássica</h2>
-                <div class="price-item"><span>Simples (Mão)</span> <span>R$ 30,00</span></div>
-                <div class="price-item"><span>Simples (Pé)</span> <span>R$ 35,00</span></div>
-                <div class="price-item"><span>Combo Pé e Mão</span> <span>R$ 60,00</span></div>
-                <div class="price-item"><span>Francesinha</span> <span>+ R$ 10,00</span></div>
+                <h3 style="color: var(--rosa-escuro)">Esmaltação Comum</h3>
+                <br>
+                <div class="price-item"><span>Esmaltação Simples</span> <span>R$ 25,00</span></div>
+                <div class="price-item"><span>Esmaltação com Decoração</span> <span>R$ 35,00</span></div>
+                <div class="price-item"><span>Francesinha</span> <span>R$ 30,00</span></div>
             `;
         }
 
-        // Função para Esmaltação em Gel
         function showGel() {
             display.innerHTML = `
-                <h2 style="color: var(--rosa-escuro)">Esmaltação em Gel</h2>
-                <p style="margin-bottom:15px">Durabilidade de até 20 dias!</p>
-                <div class="price-item"><span>Esmaltação em Gel</span> <span>R$ 80,00</span></div>
-                <div class="price-item"><span>Banho de Gel</span> <span>R$ 110,00</span></div>
-                <div class="price-item"><span>Alongamento Fibra</span> <span>R$ 150,00</span></div>
-                <div class="price-item"><span>Manutenção</span> <span>R$ 90,00</span></div>
+                <h3 style="color: var(--rosa-escuro)">Esmaltação em Gel</h3>
+                <br>
+                <div class="price-item"><span>Gel Cor Única</span> <span>R$ 60,00</span></div>
+                <div class="price-item"><span>Gel com Glitter/Arte</span> <span>R$ 80,00</span></div>
+                <div class="price-item"><span>Blindagem</span> <span>R$ 70,00</span></div>
             `;
         }
 
-        // Função para Agendamento
-        function showBooking() {
+        function showAgendamento() {
             display.innerHTML = `
-                <h2 style="color: var(--rosa-escuro)">Agende seu Horário</h2>
-                <form class="booking-form" onsubmit="event.preventDefault(); alert('Pedido de agendamento enviado!');">
-                    <label>Seu Nome:</label>
-                    <input type="text" placeholder="Digite seu nome completo" required>
-                    
-                    <label>Escolha a Data:</label>
-                    <input type="date" required>
-                    
-                    <label>Escolha o Horário:</label>
-                    <select>
-                        <option>09:00</option>
-                        <option>10:30</option>
-                        <option>14:00</option>
-                        <option>16:00</option>
-                    </select>
-                    
-                    <button type="submit">Confirmar Agendamento</button>
+                <h3 style="color: var(--rosa-escuro)">Agende seu Horário</h3>
+                <br>
+                <form onsubmit="confirmar(event)">
+                    <div class="form-group">
+                        <label>Data:</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Horário:</label>
+                        <select required>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="16:00">16:00</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit">Confirmar Agendamento</button>
                 </form>
             `;
         }
 
-        // Função de Contato (Menu)
+        function confirmar(event) {
+            event.preventDefault();
+            alert("Agendamento solicitado com sucesso! Entraremos em contato via WhatsApp.");
+        }
+
         function showContact() {
-            alert("📞 Contato Manicure:\nWhatsApp: (11) 98765-4321\nInstagram: @beauty_nails_oficial\nEndereço: Rua das Flores, 123 - Centro");
+            const info = document.getElementById('contact-info');
+            info.classList.toggle('hidden');
+            window.scrollTo(0, document.body.scrollHeight);
         }
     </script>
-
 </body>
 </html>
