@@ -3,270 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pérola Nails | Estúdio de Manicure</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <title>Pérola Nails | Serviços</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variáveis para facilitar a manutenção */
         :root {
-            --rosa-claro: #fdf2f5;
             --rosa-pastel: #f8c8dc;
             --rosa-escuro: #d4a5b9;
-            --texto: #5a4a4a;
-            --branco: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            --off-white: #fdf2f5;
+            --texto: #4a4a4a;
         }
 
         body {
-            background-color: var(--rosa-claro);
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--off-white);
             color: var(--texto);
-            line-height: 1.6;
-        }
-
-        /* Header e Navegação */
-        header {
-            background-color: var(--branco);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--rosa-escuro);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--texto);
-            font-weight: 400;
-            transition: 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--rosa-escuro);
-        }
-
-        /* Seção Hero */
-        .hero {
-            height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), 
-                        url('https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&q=80&w=1200') center/cover;
             padding: 20px;
         }
 
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 10px;
-            color: #443333;
+        /* Estilo do Botão Principal */
+        .btn-servicos {
+            background-color: var(--rosa-pastel);
+            color: var(--texto);
+            border: 2px solid var(--rosa-escuro);
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 50px;
         }
 
-        /* Tabela Interativa de Preços */
-        .container {
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 0 20px;
+        .btn-servicos:hover {
+            background-color: var(--rosa-escuro);
+            color: white;
+            transform: scale(1.05);
         }
 
-        h2 {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 40px;
-            font-size: 2.2rem;
+        /* Container da Tabela (Escondido por padrão) */
+        #tabela-precos {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.6s ease-in-out;
+            margin-top: 30px;
         }
 
+        #tabela-precos.ativo {
+            max-height: 2000px; /* Valor alto para permitir expansão */
+            opacity: 1;
+        }
+
+        /* Grid de Serviços */
         .servicos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .card {
-            background: var(--branco);
-            border-radius: 15px;
+            background: white;
+            border-radius: 20px;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
             border: 1px solid var(--rosa-pastel);
+            transition: transform 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
         }
 
         .card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
         }
 
-        .card-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .card-info h3 {
-            margin-bottom: 10px;
-            color: var(--rosa-escuro);
+        .info {
+            padding: 15px;
         }
 
         .preco {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #555;
-        }
-
-        /* Botão de Agendamento */
-        .btn-agendar {
             display: block;
-            width: 200px;
-            margin: 40px auto;
-            padding: 15px;
-            background-color: var(--rosa-pastel);
-            color: var(--texto);
-            text-align: center;
-            text-decoration: none;
-            border-radius: 50px;
+            font-size: 1.3rem;
+            color: var(--rosa-escuro);
             font-weight: 600;
-            transition: 0.3s;
+            margin-top: 10px;
         }
 
-        .btn-agendar:hover {
-            background-color: var(--rosa-escuro);
-            color: white;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--branco);
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            nav ul { display: none; } /* Menu hamburguer poderia ser implementado aqui */
-        }
+        h2 { font-family: 'Playfair Display', serif; margin-bottom: 10px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Pérola Nails</div>
-        <nav>
-            <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#precos">Preços</a></li>
-                <li><a href="#">Galeria</a></li>
-                <li><a href="#">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+    <h2>Conheça nossos cuidados</h2>
+    <p>Clique abaixo para ver as opções e valores.</p>
 
-    <section class="hero">
-        <h1>Sua beleza em cada detalhe.</h1>
-        <p>Esmaltação profissional com carinho e sofisticação.</p>
-    </section>
+    <button class="btn-servicos" id="btnToggle">Nossos Serviços 💅</button>
 
-    <div class="container" id="precos">
-        <h2>Nossos Serviços</h2>
-        <div class="servicos-grid" id="grid-servicos">
+    <div id="tabela-precos">
+        <div class="servicos-grid" id="grid-container">
             </div>
-
-        <a href="#" class="btn-agendar" onclick="alert('Redirecionando para o WhatsApp...')">Agendar Horário</a>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Pérola Nails Estúdio - Todos os direitos reservados.</p>
-    </footer>
-
     <script>
-        // Dados das esmaltações (Simulando um banco de dados)
         const servicos = [
-            {
-                nome: "Esmaltação Simples",
-                preco: "R$ 35,00",
-                imagem: "https://images.unsplash.com/photo-1604654894610-df490651e194?auto=format&fit=crop&q=80&w=400",
-                descricao: "Cutilagem e aplicação de esmalte comum."
-            },
-            {
-                nome: "Esmaltação em Gel",
-                preco: "R$ 70,00",
-                imagem: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?auto=format&fit=crop&q=80&w=400",
-                descricao: "Brilho intenso e durabilidade de até 20 dias."
-            },
-            {
-                nome: "Nail Art (Design)",
-                preco: "R$ 95,00",
-                imagem: "https://images.unsplash.com/photo-1604902396830-aca29e19b067?auto=format&fit=crop&q=80&w=400",
-                descricao: "Desenhos feitos à mão e pedrarias exclusivas."
-            },
-            {
-                nome: "Alongamento Fibra",
-                preco: "R$ 150,00",
-                imagem: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?auto=format&fit=crop&q=80&w=400",
-                descricao: "Extensão com aspecto natural e resistência."
-            }
+            { nome: "Mão Simples", preco: "R$ 35,00", img: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=400" },
+            { nome: "Pé e Mão", preco: "R$ 65,00", img: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=400" },
+            { nome: "Banho de Gel", preco: "R$ 90,00", img: "https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=400" },
+            { nome: "Esmaltação em Gel", preco: "R$ 55,00", img: "https://images.unsplash.com/photo-1604654894610-df490651e194?w=400" }
         ];
 
-        // Função para carregar os serviços dinamicamente
-        function carregarServicos() {
-            const grid = document.getElementById('grid-servicos');
-            
-            servicos.forEach(servico => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                
-                card.innerHTML = `
-                    <img src="${servico.imagem}" alt="${servico.nome}">
-                    <div class="card-info">
-                        <h3>${servico.nome}</h3>
-                        <p>${servico.descricao}</p>
-                        <p class="preco">${servico.preco}</p>
+        const btn = document.getElementById('btnToggle');
+        const tabela = document.getElementById('tabela-precos');
+        const grid = document.getElementById('grid-container');
+
+        // Criar os cards dinamicamente
+        servicos.forEach(s => {
+            grid.innerHTML += `
+                <div class="card">
+                    <img src="${s.img}" alt="${s.nome}">
+                    <div class="info">
+                        <h3>${s.nome}</h3>
+                        <span class="preco">${s.preco}</span>
                     </div>
-                `;
+                </div>
+            `;
+        });
 
-                // Interação: Alerta ao clicar no card
-                card.addEventListener('click', () => {
-                    alert(`Você selecionou: ${servico.nome}\nValor: ${servico.preco}`);
-                });
-
-                grid.appendChild(card);
-            });
-        }
-
-        // Inicializa a função ao carregar a página
-        window.onload = carregarServicos;
+        // Lógica do Clique para mostrar/esconder
+        btn.addEventListener('click', () => {
+            tabela.classList.toggle('ativo');
+            
+            if (tabela.classList.contains('ativo')) {
+                btn.innerText = "Fechar Tabela ✕";
+                // Scroll suave para a tabela
+                setTimeout(() => {
+                    tabela.scrollIntoView({ behavior: 'smooth' });
+                }, 300);
+            } else {
+                btn.innerText = "Nossos Serviços 💅";
+            }
+        });
     </script>
+
 </body>
 </html>
